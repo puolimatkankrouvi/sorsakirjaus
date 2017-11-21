@@ -4,6 +4,4 @@ Exercise for Vincit Summer Work 2018
  (http://koodarijahti.fi/).
 
 
-Requires back-end running at http://localhost:8081/.
- Back end is from:
-https://github.com/vincit/summer-2018.
+Requires back-end from https://github.com/vincit/summer-2018 running at port 8081.
