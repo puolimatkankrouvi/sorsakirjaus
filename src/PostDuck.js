@@ -1,35 +1,24 @@
 import axios from 'axios';
-
-import React,{Component} from 'react';
-
-const post_address = 'http://localhost:8081/sightings';
+import {Component} from 'react';
 
 
-/*
-This React class could be just a function
-function PostDuck( param = {'count': 4, 'species': 'mallard', 'description': 'asjdlajskdlj', 'sightingDate': currentDate} ){
-  axios.post(
-      post_address,
-      //JSON
-      { 
-        'count': param['count'],
-        'species': param['species'],
-        'description': param['description'],
-        'dateTime': param['sightingDate']
-      }
-    );
-}*/
+
+
+const backend_url = 'http://localhost:8081/sightings';
+
+
 
 class PostDuck extends Component{
 
   constructor(props){
     super(props);
-    this.state = { count: 4, species: 'mallard', description: 'asjdlajskdlj', sightingDate: Date() , 'data': {} };
+    this.state = { count: 4, species: 'mallard', description: 'asjdlajskdlj', sightingDate: Date()};
   }
 
   componentDidMount(){
+    //Sending a new sighting through POST
     axios.post(
-      post_address,
+      backend_url,
       //JSON
       { 
       	'count': this.state.count,
@@ -39,8 +28,7 @@ class PostDuck extends Component{
       }
     )
     .then( (response) => {
-    	const response_header = response.data.head;
-    	this.setState('data': response_header);
+    	
     });
   }
 
@@ -51,3 +39,20 @@ class PostDuck extends Component{
 
 export default PostDuck;
 
+
+/*
+The above React class could be just a simple javascript function:
+
+function PostDuck( count = 4, species = 'mallard', description = 'asjdlajskdlj', sightingDate= currentDate} ){
+  //Sending a new sighting through POST
+  axios.post(
+      backend_url,
+      //JSON
+      { 
+        'count': count,
+        'species': species,
+        'description': description,
+        'dateTime': sightingDate
+      }
+    );
+}*/
