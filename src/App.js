@@ -21,7 +21,8 @@ const date_format = 'DoMM.YYYY, hh:mm:ss';
 /*
 
 Todo:
-Post luokka
+
+SightingDate siirtymään stateen ()
 
 Splittaa DuckTable:n get omaksi luokakseen
 
@@ -60,7 +61,7 @@ class DuckTable extends Component{
   constructor(props){
     super(props);
 
-    this.state = { ducks: [], all_species: [], count: '', species: '', description: '', SightingDate: Date};
+    this.state = { ducks: [], all_species: [], count: '', species: '', description: '', sightingDate: Date };
     //
 
     this.validator = new SimpleReactValidator();
@@ -87,8 +88,10 @@ class DuckTable extends Component{
   handleSubmit = (e) =>{
     e.preventDefault();
 
+    console.log(this.state.sightingDate);
+
     if ( this.validator.allValid()  ){
-      <PostDuck count={this.state.count} species={this.state.species} description={this.state.description} SightingDate={this.state.SightingDate} />
+      <PostDuck count={this.state.count} species={this.state.species} description={this.state.description} sightingDate={this.state.sightingDate}/> ;
     }
     else{
       this.validator.showMessages();
@@ -113,7 +116,7 @@ class DuckTable extends Component{
   }
 
   setSightingDate = (date) =>{
-    this.setState({SightingDate: date});
+    this.setState({sightingDate: date});
   }
 
   render(){
@@ -171,7 +174,7 @@ class DuckTable extends Component{
                     </th>
                   <th>
                     { this.validator.message('time',this.state.SightingDate, 'required') }
-                    <DateTime onChange={this.setSightingDate}  />
+                    <DateTime onChange={this.setSightingDate}  name='time' />
                   </th>
                   <th>
                     <input className="btn btn-primary" type="submit" value="Add" onClick={this.handleSubmit} />
