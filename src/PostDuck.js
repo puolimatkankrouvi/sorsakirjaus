@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {Component} from 'react';
+//import {Component} from 'react';
 
 
 
@@ -8,7 +8,7 @@ const backend_url = 'http://localhost:8081/sightings';
 
 
 
-class PostDuck extends Component{
+/*class PostDuck extends Component{
 
   constructor(props){
     super(props);
@@ -37,13 +37,12 @@ class PostDuck extends Component{
   }
 }
 
-export default PostDuck;
+export default PostDuck;*/
 
 
-/*
-The above React class could be just a simple javascript function:
+//The above React class could be just a simple javascript function:
 
-function PostDuck( count = 4, species = 'mallard', description = 'asjdlajskdlj', sightingDate= currentDate} ){
+export function PostDuck( count = 4, species = 'mallard', description = 'asjdlajskdlj', sightingDate= Date ){
   //Sending a new sighting through POST
   axios.post(
       backend_url,
@@ -55,4 +54,4 @@ function PostDuck( count = 4, species = 'mallard', description = 'asjdlajskdlj',
         'dateTime': sightingDate
       }
     );
-}*/
+}

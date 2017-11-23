@@ -5,7 +5,7 @@ import './App.css';
 
 import {DateTime} from 'react-datetime-bootstrap';
 
-import PostDuck from './PostDuck';
+import {PostDuck} from './PostDuck';
 import GetDucks from './GetDucks'
 
 var SimpleReactValidator = require('simple-react-validator');
@@ -25,7 +25,9 @@ Todo:
 
 SightingDate siirtymään stateen tai validoitumaan oikein
 
-PostDuck kutsunta HandleSubmit-funktiosta
+PostDuck kutsunta HandleSubmit-funktiosta (PostDuck tavalliseksi Javascript-funktioksi?)
+
+Havaintojen järjestäminen laskevaan tai nousevaan järjestykseen ajan mukaan
 
 */
 
@@ -88,12 +90,15 @@ class DuckTable extends Component{
   handleSubmit = (e) =>{
     e.preventDefault();
 
-    console.log(this.state.sightingDate);
-
     //Are all the fields of form valid?
     if ( this.validator.allValid()  ){
+      
       //Posting a new duck sighting
+      PostDuck( this.state.count, this.state.species, this.state.description, this.state.sightingDate );
+      
+      /* Component version
       <PostDuck count={this.state.count} species={this.state.species} description={this.state.description} sightingDate={this.state.sightingDate}/> ;
+      */
     }
     else{
       //Messages for fields that are no valid 
