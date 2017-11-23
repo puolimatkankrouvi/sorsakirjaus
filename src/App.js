@@ -25,8 +25,6 @@ Todo:
 
 SightingDate siirtymään stateen tai validoitumaan oikein
 
-PostDuck kutsunta HandleSubmit-funktiosta (PostDuck tavalliseksi Javascript-funktioksi?)
-
 Havaintojen järjestäminen laskevaan tai nousevaan järjestykseen ajan mukaan
 
 */
@@ -92,7 +90,7 @@ class DuckTable extends Component{
 
     //Are all the fields of form valid?
     if ( this.validator.allValid()  ){
-      
+
       //Posting a new duck sighting
       PostDuck( this.state.count, this.state.species, this.state.description, this.state.sightingDate );
       
