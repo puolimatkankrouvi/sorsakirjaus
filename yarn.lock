@@ -911,7 +911,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@6.26.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
+babel-runtime@6.26.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.25.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -1047,7 +1047,7 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap@3:
+bootstrap@3, bootstrap@^3.3:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
 
@@ -2030,6 +2030,15 @@ enhanced-resolve@^3.4.0:
 entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
+
+eonasdan-bootstrap-datetimepicker@^4.17.47:
+  version "4.17.47"
+  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.47.tgz#7a49970044065276e7965efd16f822735219e735"
+  dependencies:
+    bootstrap "^3.3"
+    jquery "^1.8.3 || ^2.0 || ^3.0"
+    moment "^2.10"
+    moment-timezone "^0.4.0"
 
 errno@^0.1.3, errno@^0.1.4:
   version "0.1.4"
@@ -3692,6 +3701,10 @@ jest@20.0.4:
   dependencies:
     jest-cli "^20.0.4"
 
+"jquery@^1.8.3 || ^2.0 || ^3.0", jquery@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
 js-base64@^2.1.9:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.3.2.tgz#a79a923666372b580f8e27f51845c6f7e8fbfbaf"
@@ -4158,6 +4171,16 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+moment-timezone@^0.4.0:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.4.1.tgz#81f598c3ad5e22cdad796b67ecd8d88d0f5baa06"
+  dependencies:
+    moment ">= 2.6.0"
+
+"moment@>= 2.6.0", moment@^2.10, moment@^2.18.1, moment@^2.19.2:
+  version "2.19.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.2.tgz#8a7f774c95a64550b4c7ebd496683908f9419dbe"
 
 ms@2.0.0:
   version "2.0.0"
@@ -5108,6 +5131,18 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-datetime-bootstrap@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/react-datetime-bootstrap/-/react-datetime-bootstrap-1.3.1.tgz#9e29aaf56e6714c83c5ddd6ef502a97ab160726d"
+  dependencies:
+    babel-runtime "^6.25.0"
+    eonasdan-bootstrap-datetimepicker "^4.17.47"
+    jquery "^3.2.1"
+    moment "^2.18.1"
+    prop-types "^15.6.0"
+    react "^16.0.0"
+    react-dom "^16.0.0"
+
 react-dev-utils@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.1.tgz#9f2763e7bafa1a1b9c52254d2a479deec280f111"
@@ -5131,7 +5166,7 @@ react-dev-utils@^4.2.1:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dom@^16.1.1:
+react-dom@^16.0.0, react-dom@^16.1.1:
   version "16.1.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.1.1.tgz#b2e331b6d752faf1a2d31399969399a41d8d45f8"
   dependencies:
@@ -5187,7 +5222,7 @@ react-scripts@1.0.17:
   optionalDependencies:
     fsevents "1.1.2"
 
-react@^16.1.1:
+react@^16.0.0, react@^16.1.1:
   version "16.1.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.1.1.tgz#d5c4ef795507e3012282dd51261ff9c0e824fe1f"
   dependencies:
@@ -5675,6 +5710,10 @@ shellwords@^0.1.0:
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
+
+simple-react-validator@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/simple-react-validator/-/simple-react-validator-0.0.6.tgz#e8eb3c643df27b9c34b7bbe4e719f4d8249a8e98"
 
 slash@^1.0.0:
   version "1.0.0"

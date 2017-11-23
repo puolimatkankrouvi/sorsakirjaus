@@ -1,3 +1,5 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
 .App {
   text-align: center;
 }
@@ -24,4 +26,12 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Count{
+  width: 30px;
+}
+
+.Description{
+  max-width: 600px;
 }
