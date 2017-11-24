@@ -5231,6 +5231,10 @@ react@^16.0.0, react@^16.1.1:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+reactjs-bootstrap-table@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/reactjs-bootstrap-table/-/reactjs-bootstrap-table-1.0.12.tgz#0f75f58cc9f4a779c8d0ed76758a8b929b086241"
+
 read-all-stream@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/read-all-stream/-/read-all-stream-3.1.0.tgz#35c3e177f2078ef789ee4bfafa4373074eaef4fa"

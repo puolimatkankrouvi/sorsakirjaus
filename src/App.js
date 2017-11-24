@@ -26,6 +26,7 @@ Todo:
 SightingDate siirtymään stateen tai validoitumaan oikein
 
 Havaintojen järjestäminen laskevaan tai nousevaan järjestykseen ajan mukaan
+Datatable?
 
 */
 
@@ -62,7 +63,7 @@ class DuckTable extends Component{
   constructor(props){
     super(props);
 
-    this.state = { all_species: [], count: '', species: '', description: '', sightingDate: Date };
+    this.state = { all_species: [], count: '', species: 'mallard', description: '', sightingDate: Date };
 
     //Validates the form
     this.validator = new SimpleReactValidator();
@@ -86,6 +87,7 @@ class DuckTable extends Component{
   }
 
   handleSubmit = (e) =>{
+
     e.preventDefault();
 
     //Are all the fields of form valid?
@@ -93,7 +95,7 @@ class DuckTable extends Component{
 
       //Posting a new duck sighting
       PostDuck( this.state.count, this.state.species, this.state.description, this.state.sightingDate );
-      
+      window.location.reload();
       /* Component version
       <PostDuck count={this.state.count} species={this.state.species} description={this.state.description} sightingDate={this.state.sightingDate}/> ;
       */
@@ -131,13 +133,13 @@ class DuckTable extends Component{
     return(
       <div>
         <form>
-          <table class="table">
+          <table class="table sortable">
             <thead>
               <tr>
-                <th>Määrä</th>
-                <th>Laji</th>
-                <th>Teksti</th>
-                <th>Aika</th>
+                <th className="Header-th">Määrä</th>
+                <th className="Header-th">Laji</th>
+                <th className="Header-th">Teksti</th>
+                <th className="Header-th">Aika</th>
               </tr>
             </thead>
 
@@ -156,10 +158,14 @@ class DuckTable extends Component{
                 </th>
 
                 <th>
-                  <select name="all_species" onChange={this.setSpecies} >
+                  <select name="all_species" onChange={this.setSpecies} id="all_species">
                   {
+                    //Mallard is selected by default
                     this.state.all_species.map( species =>
-                      <option>{species.name}</option>
+                      species === 'mallard' ?
+                        <option value={species.name} selected="selected">{species.name}</option> :
+                          <option value={species.name} >{species.name}</option>
+                      
                     )
                   }
                   </select>
@@ -171,7 +177,7 @@ class DuckTable extends Component{
                 </th>
 
                 <th>
-                  { this.validator.message('date',this.state.SightingDate, 'required') }
+                  {/* this.validator.message('date',this.state.SightingDate, 'required') */}
                   <DateTime onChange={this.setSightingDate}  name='date' pickerOptions={{format: date_format, locale: 'fi' }} />
                 </th>
 
@@ -183,6 +189,8 @@ class DuckTable extends Component{
             </tbody>
           </table>
         </form>
+ 
+        
       </div>
     );
     
