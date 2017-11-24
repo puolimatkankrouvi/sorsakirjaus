@@ -35,3 +35,7 @@
 .Description{
   max-width: 900px;
 }
+
+.DatePicker{
+  width: 200px;
+}

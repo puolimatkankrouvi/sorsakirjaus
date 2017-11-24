@@ -8,6 +8,9 @@ import {DateTime} from 'react-datetime-bootstrap';
 import {PostDuck} from './PostDuck';
 import GetDucks from './GetDucks'
 
+var moment = require('moment');
+require('moment/locale/fi');
+
 var SimpleReactValidator = require('simple-react-validator');
 
 
@@ -62,8 +65,8 @@ class DuckTable extends Component{
 
   constructor(props){
     super(props);
-
-    this.state = { all_species: [], count: '', species: 'mallard', description: '', sightingDate: Date };
+    /*Initial values are set for species and sightingDate for such case that their form fields are not touched by user*/
+    this.state = { all_species: [], count: '', species: 'mallard', description: '', sightingDate: Date() };
 
     //Validates the form
     this.validator = new SimpleReactValidator();
@@ -178,7 +181,7 @@ class DuckTable extends Component{
 
                 <th>
                   {/* this.validator.message('date',this.state.SightingDate, 'required') */}
-                  <DateTime onChange={this.setSightingDate}  name='date' pickerOptions={{format: date_format, locale: 'fi' }} />
+                  <DateTime onChange={this.setSightingDate}  placeholder={moment(this.state.sightingDate).format( date_format )} name='date' pickerOptions={{format: date_format, locale: 'fi' }} />
                 </th>
 
                 <th>
