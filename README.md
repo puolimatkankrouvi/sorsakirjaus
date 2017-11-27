@@ -5,3 +5,6 @@ Exercise for Vincit Summer Work 2018
 
 
 Requires back-end from https://github.com/vincit/summer-2018 running at port 8081.
+
+
+![alt text](https://raw.githubusercontent.com/puolimatkankrouvi/sorsakirjaus/master/example.jpg)
