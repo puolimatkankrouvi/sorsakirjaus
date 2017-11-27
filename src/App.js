@@ -136,7 +136,7 @@ class DuckTable extends Component{
     return(
       <div>
         <form>
-          <table class="table sortable">
+          <table class="table">
             <thead>
               <tr>
                 <th className="Header-th">Määrä</th>
