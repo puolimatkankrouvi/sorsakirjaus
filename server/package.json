@@ -9,6 +9,7 @@
   "dependencies": {
     "@koa/cors": "koajs/cors",
     "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
     "koa-router": "^7.3.0",
     "mongoose": "^4.13.5"

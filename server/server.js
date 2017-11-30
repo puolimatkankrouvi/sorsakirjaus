@@ -19,6 +19,9 @@ const router = require('koa-router')();
 const json = require('koa-json')
 app.use(json());
 
+var bodyParser = require('koa-bodyparser');
+app.use(bodyParser());
+
 
 const cors = require('@koa/cors');
 var corsOptions = {
@@ -62,8 +65,9 @@ async function getSightings(ctx){
 
 async function setSighting(ctx){
   var post_data = await ctx.request.body;
-  console.log(post_data);
-  //await db.insertSighting(post_data);
+  if(post_data != null){
+    await db.insertSighting(post_data);
+  }
   ctx.body = post_data;
 }
 
