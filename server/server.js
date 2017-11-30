@@ -53,8 +53,10 @@ const species = [
 
 
 router.get('/sightings', getSightings);
-router.post('/sightings', cors(corsOptions), setSighting);
+router.post('/sightings', setSighting);
 router.get('/species',  getSpecies);
+
+router.options('/sightings', cors(corsOptions));
 
 
 //This is async function in order to wait info from database
