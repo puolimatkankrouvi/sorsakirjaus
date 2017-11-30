@@ -8,7 +8,7 @@ Exercise for Vincit Summer Work 2018
  
 Requires server running at port 8081.
 
-Orginal server is in https://github.com/vincit/summer-2018 .
+My server implementation using Koa.js and MongoDB is in the server folder.
 
-My server implementation using koa.js and MongoDB is in the server-folder.
+Original server can be found from https://github.com/vincit/summer-2018 .
 
