@@ -40,14 +40,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div class="container">
+        <div className="container">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Sorsakirjaus</h1>
           </header>
       
-          <div class="row">
-            <div class="col-md-12">
+          <div className="row">
+            <div className="col-md-12">
                           
               <DuckTable/>
  
@@ -85,6 +85,7 @@ class DuckTable extends Component{
       .then( response =>{
         const all_species = response.data;
         this.setState({all_species});
+        console.log(all_species);
       }
     );
   }
@@ -136,7 +137,7 @@ class DuckTable extends Component{
     return(
       <div>
         <form>
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th className="Header-th">Määrä</th>

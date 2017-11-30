@@ -21,3 +21,6 @@ yarn-debug.log*
 yarn-error.log*
 
 node_modules
+server/mongodb_komennot.txt
+server/node_modules
+server/mongodb.bat

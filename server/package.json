@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for sorsakirjaus",
+  "main": "server.js",
+  "author": "Henri Vekuna",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-cors": "^0.0.16",
+    "koa-json": "^2.0.2",
+    "koa-router": "^7.3.0",
+    "mongoose": "^4.13.5"
+  }
+}
