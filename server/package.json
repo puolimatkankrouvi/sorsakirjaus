@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@koa/cors": "koajs/cors",
     "koa": "^2.4.1",
-    "koa-cors": "^0.0.16",
     "koa-json": "^2.0.2",
     "koa-router": "^7.3.0",
     "mongoose": "^4.13.5"

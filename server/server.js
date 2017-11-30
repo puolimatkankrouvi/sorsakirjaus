@@ -20,10 +20,10 @@ const json = require('koa-json')
 app.use(json());
 
 
-const cors = require('koa-cors');
+const cors = require('@koa/cors');
 var corsOptions = {
   origin: "*", //Cross-origin-resource sharing allowed from all domains
-  headers: "Origin, X-Requested-With, Content-Type, Accept" //Use these headers when request is made
+  allowHeaders: "Origin, X-Requested-With, Content-Type, Accept" //Use these headers when request is made
 }
 app.use( cors(corsOptions) );
 
@@ -50,12 +50,7 @@ const species = [
 
 
 router.get('/sightings', getSightings);
-router.post('/sightings', cors(corsOptions), async (ctx,next) => {
-  var post_data = ctx.request.body;
-  console.log(post_data);
-  await insertSightings(post_data);
-  ctx.body = post_data;
-});
+router.post('/sightings', cors(corsOptions), setSighting);
 router.get('/species',  getSpecies);
 
 
@@ -65,10 +60,11 @@ async function getSightings(ctx){
   ctx.body = sightings;
 }
 
-async function setSightings(ctx){
+async function setSighting(ctx){
   var post_data = await ctx.request.body;
   console.log(post_data);
-  await insertSightings(post_data);
+  //await db.insertSighting(post_data);
+  ctx.body = post_data;
 }
 
 function getSpecies(ctx){

@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@koa/cors@koajs/cors":
+  version "2.2.1"
+  resolved "https://codeload.github.com/koajs/cors/tar.gz/6e22833ce125ca334b68980372065867eda892b0"
+
 accepts@^1.2.2:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.4.tgz#86246758c7dd6d21a6474ff084a4740ec05eb21f"
@@ -166,10 +170,6 @@ koa-convert@^1.2.0:
   dependencies:
     co "^4.6.0"
     koa-compose "^3.0.0"
-
-koa-cors@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/koa-cors/-/koa-cors-0.0.16.tgz#98107993a7909e34c042986c5ec6156d77f3432e"
 
 koa-is-json@1, koa-is-json@^1.0.0:
   version "1.0.0"

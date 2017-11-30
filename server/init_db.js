@@ -76,8 +76,20 @@ const sightings = [
 ];
 
 
-function insertSighting(var s){
-	var newSighting = new SightingModel(s);
+function removeAllSightings(){
+  SightingModel.remove( (err) => {
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log('Sightings removed');
+      setInitialSightings()
+    }
+  });
+}
+
+function insertSighting(sighting){
+	var newSighting = new SightingModel(sighting);
 	newSighting.save((err,res) =>{
 		if(err){
 			console.log(err.message);
@@ -90,11 +102,11 @@ function insertSighting(var s){
 
 
 function setInitialSightings(){
-	for (s in sightings){
-		insertSighting(s);
+	for (i in sightings){
+		insertSighting(sightings[i]);
 	}
 
 }
 
-setInitialSightings();
+removeAllSightings();
 
