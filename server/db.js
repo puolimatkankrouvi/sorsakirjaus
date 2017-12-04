@@ -58,8 +58,30 @@ var insertSighting =  function(s){
 	});
 }
 
+var updateSighting = function(id, newValues){
+
+	SightingModel.Model.findById( (err, s ) => {
+		if(err){
+			console.log(err);
+		}
+		else{
+			s.update(newValues);
+			s.save( (err,res) => {
+				if(err){
+					console.log(err.message);
+				}
+			});
+		}
+	});
+
+	return selectSightings();
+
+}
+
 
 //Exporting these functions outside
 module.exports = {
-	selectSightings,insertSighting
+	selectSightings,
+	insertSighting,
+	updateSighting
 }
