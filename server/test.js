@@ -49,8 +49,6 @@ describe("Get sightings" , () =>{
 		//get supertest to http://localhost:8081/sightings
 		const response = await request(server).get('/sightings');
 
-		console.log(response);
-
 		//Expects response to have status code 200/OK
 		expect(response.status).toEqual(200);
 		//Expects response type to be application/json

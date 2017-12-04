@@ -68,7 +68,7 @@ async function getSightings(ctx){
 async function setSighting(ctx){
   var post_body = await ctx.request.body;
 
-  
+
   //If post body does not have all the parameters, send 404
   if(post_body.description == null || post_body.count==null || post_body.species==null || post_body.dateTime == null){
     ctx.throw(404);
@@ -78,6 +78,7 @@ async function setSighting(ctx){
       //Inserting new sighting
       await db.insertSighting(post_body);
     }
+    //TODO: Updating current sighting
 
     ctx.body = post_body;
   }
