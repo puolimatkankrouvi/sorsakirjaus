@@ -21,6 +21,7 @@ var SightingSchema = mongoose.Schema({
 var SightingModel = mongoose.model("Sighting",SightingSchema);
 
 
+//Selects all sightins from database with empty query in execute-method
 var selectSightings = function(){
 	//Lean option of find makes result an javascript object, before executing the query
 	// How to remove versionKey field (__v) from result?
@@ -38,6 +39,7 @@ var selectSightings = function(){
 	return sightings;
 ;}
 
+//Inserts a new signting to database
 //Sighting s comes in JSON-format
 var insertSighting =  function(s){
 	var newSighting = new SightingModel(s);
