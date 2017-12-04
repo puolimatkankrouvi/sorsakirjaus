@@ -66,13 +66,23 @@ async function getSightings(ctx){
 }
 
 async function setSighting(ctx){
-  var post_data = await ctx.request.body;
-  if(post_data != null){
-    if(post_data.id == null){
-      await db.insertSighting(post_data);
-    }
+  var post_body = await ctx.request.body;
+
+  //If post_body is empty aka empty object {},
+  // send 404 response
+  if( Object.keys(post_body).length === 0 &&
+      post_body.constructor === Object){
+    ctx.throw(404);
   }
-  ctx.body = post_data;
+  else{
+    if(post_body.id == null){
+      //Inserting new sighting
+      await db.insertSighting(post_body);
+    }
+
+    ctx.body = post_body;
+  }
+  
 }
 
 function getSpecies(ctx){
