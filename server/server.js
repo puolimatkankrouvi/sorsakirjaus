@@ -83,6 +83,10 @@ app
   .use(router.allowedMethods());
 
 const port = process.env.PORT ? process.env.PORT : 8081;
-app.listen(port, function() {
+const server = app.listen(port, function() {
   console.log('Server running at port %s.',port);
 });
+
+
+//Export is used for testing
+module.exports = server;

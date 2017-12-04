@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
-
+//Auto-increment plugin for incrementing id
+const autoIncrement = require('mongodb-autoincrement')
 
 
 database_name = 'tietokanta';
 mongo_url = 'mongodb://localhost:27017/' + database_name;
+autoIncrementOptions = {'field':'id'};
+mongoose.plugin(autoIncrement.mongoosePlugin, autoIncrementOptions);
 mongoose.connect(mongo_url);
 
 

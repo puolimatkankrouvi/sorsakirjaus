@@ -8,10 +8,19 @@
   "private": false,
   "dependencies": {
     "@koa/cors": "koajs/cors",
+    "jest": "^21.2.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
     "koa-router": "^7.3.0",
-    "mongoose": "^4.13.5"
+    "mongodb-autoincrement": "^1.0.1",
+    "mongoose": "^4.13.5",
+    "supertest": "^3.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
