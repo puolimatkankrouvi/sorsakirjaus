@@ -68,10 +68,9 @@ async function getSightings(ctx){
 async function setSighting(ctx){
   var post_body = await ctx.request.body;
 
-  //If post_body is empty aka empty object {},
-  // send 404 response
-  if( Object.keys(post_body).length === 0 &&
-      post_body.constructor === Object){
+  
+  //If post body does not have all the parameters, send 404
+  if(post_body.description == null || post_body.count==null || post_body.species==null || post_body.dateTime == null){
     ctx.throw(404);
   }
   else{

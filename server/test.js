@@ -27,17 +27,17 @@ const species = [
 
 //Testing getting species
 describe("get species" , () =>{
-	it("Should get species", async () => {
+	it("Should get species", () => {
 		//get supertest to http://localhost:8081/species
-		const response = await request(server).get('/species');
+		const response = request(server).get('/species').then( () => {
 
-
-		//Expects response to have status code 200/OK
-		expect(response.status).toEqual(200);
-		//Expects response type to be application/json
-		expect(response.type).toEqual("application/json");
-		//Expects response body be the same as species
-		expect(response.body.data).toEqual(species);
+			//Expects response to have status code 200/OK
+			expect(response.status).toEqual(200);
+			//Expects response type to be application/json
+			expect(response.type).toEqual("application/json");
+			//Expects response body be the same as species
+			expect(response.body.data).toEqual(species);
+		});
 	});
 });
 
@@ -49,6 +49,7 @@ describe("Get sightings" , () =>{
 		//get supertest to http://localhost:8081/sightings
 		const response = await request(server).get('/sightings');
 
+		console.log(response);
 
 		//Expects response to have status code 200/OK
 		expect(response.status).toEqual(200);
