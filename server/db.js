@@ -1,24 +1,29 @@
 const mongoose = require('mongoose')
 //Auto-increment plugin for incrementing id
-const autoIncrement = require('mongodb-autoincrement')
+const autoIncrement = require('mongoose-auto-increment')
 
 
 database_name = 'tietokanta';
 mongo_url = 'mongodb://localhost:27017/' + database_name;
-autoIncrementOptions = {'field':'id'};
-mongoose.plugin(autoIncrement.mongoosePlugin, autoIncrementOptions);
-mongoose.connect(mongo_url);
+var connection = mongoose.connect(mongo_url);
 
 
 
 
 var SightingSchema = mongoose.Schema({
-	id: String,
+	id: Number,
 	species: String,
 	description: String,
 	dateTime: Date,
 	count: Number
 });
+
+autoIncrementOptions = {
+	model:'Sighting',
+	field:'id'
+};
+autoIncrement.initialize(connection);
+SightingSchema.plugin(autoIncrement.plugin, autoIncrementOptions);
 
 //model.bind?
 var SightingModel = mongoose.model("Sighting",SightingSchema);

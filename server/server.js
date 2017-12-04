@@ -68,7 +68,9 @@ async function getSightings(ctx){
 async function setSighting(ctx){
   var post_data = await ctx.request.body;
   if(post_data != null){
-    await db.insertSighting(post_data);
+    if(post_data.id == null){
+      await db.insertSighting(post_data);
+    }
   }
   ctx.body = post_data;
 }

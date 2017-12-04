@@ -13,8 +13,8 @@
     "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
     "koa-router": "^7.3.0",
-    "mongodb-autoincrement": "^1.0.1",
     "mongoose": "^4.13.5",
+    "mongoose-auto-increment": "^5.0.1",
     "supertest": "^3.0.0"
   },
   "scripts": {

@@ -55,8 +55,9 @@ describe("Get sightings" , () =>{
 		//Expects response type to be application/json
 		expect(response.type).toEqual("application/json");
 
-		//JSON fields to be in the response
+		
 		for( i in response.body){
+			//JSON fields to be in the array objects of response
 			expect(response.body[i]).toHaveProperty('id');
 			expect(response.body[i]).toHaveProperty('dateTime');
 			expect(response.body[i]).toHaveProperty('description');
@@ -70,8 +71,29 @@ describe("Get sightings" , () =>{
 
 describe("Post signtings" ,() => {
 	it( "Should post sightings", async() => {
-		const newSighting = {};
-		//Post sighting to http://localhost:8081/sightings
+
+		const newSighting = {
+			description:"This duck was seen yesterday",
+			count:"1",
+			dateTime: "2016-12-12T10:10:00Z",
+			species: "gadwall",
+		};
+
+		const response = await request(server).post('/sightings');
+
+		//Expects response to have status code 200/OK
+		expect(response.status).toEqual(200);
+		//Expects response type to be application/json
+		expect(response.type).toEqual("application/json");
+
+		//JSON fields to be in the array object of the response
+		expect(response.body[0]).toHaveProperty('id');
+		expect(response.body[0]).toHaveProperty('dateTime');
+		expect(response.body[0]).toHaveProperty('description');
+		expect(response.body[0]).toHaveProperty('species');
+		expect(response.body[0]).toHaveProperty('count');
+
+
 	});
 });
 
