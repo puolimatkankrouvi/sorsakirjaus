@@ -1,8 +1,10 @@
 
 const mongoose = require('mongoose')
+//Auto-increment plugin for incrementing id
+const autoIncrement = require('mongoose-auto-increment')
 
 mongo_url = 'mongodb://localhost:27017/tietokanta';
-mongoose.connect(mongo_url);
+var connection = mongoose.connect(mongo_url);
 
 var SightingSchema = mongoose.Schema({
 	id: Number,
@@ -11,6 +13,13 @@ var SightingSchema = mongoose.Schema({
 	dateTime: Date,
 	count: Number
 });
+
+autoIncrementOptions = {
+  model:'Sighting',
+  field:'id'
+};
+autoIncrement.initialize(connection);
+SightingSchema.plugin(autoIncrement.plugin, autoIncrementOptions);
 
 
 var SightingModel = mongoose.model("Sighting",SightingSchema);

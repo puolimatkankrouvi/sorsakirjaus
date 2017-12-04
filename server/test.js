@@ -86,7 +86,7 @@ describe("Post signtings" ,() => {
 		//Expects response type to be application/json
 		expect(response.type).toEqual("application/json");
 
-		//JSON fields to be in the array object of the response
+		//JSON fields to be in the sighting object of the response
 		expect(response.body[0]).toHaveProperty('id');
 		expect(response.body[0]).toHaveProperty('dateTime');
 		expect(response.body[0]).toHaveProperty('description');
