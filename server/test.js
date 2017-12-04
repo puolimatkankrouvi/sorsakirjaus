@@ -1,4 +1,5 @@
 const server = require('./server.js');
+//Supertest and jest
 const request = require('supertest');
 
 afterAll( () =>{

@@ -75,15 +75,8 @@ async function setSighting(ctx){
     ctx.throw(404);
   }
   else{
-    if(post_body.id == null){
-      //Inserting new sighting
-      await db.insertSighting(post_body);
-    }
-    //TODO: Updating current sighting
-    else{
-      updateSighting(post.body.id, post_body);
-    }
-
+    
+    await db.insertSighting(post_body);
     ctx.body = post_body;
   }
   
