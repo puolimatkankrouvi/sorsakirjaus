@@ -74,7 +74,14 @@ async function setSighting(ctx){
     ctx.throw(404);
   }
   else{
-    await db.insertSighting(post_body);
+    if(post_body.id == null){
+      await db.insertSighting(post_body);
+    }
+    else{
+      //Removing the id that user has set already
+      delete post_body.id;
+      await db.insertSighting(post_body);
+    }
     ctx.body = post_body;
   }
   
