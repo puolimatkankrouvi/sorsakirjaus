@@ -1,9 +1,19 @@
+/*
+
+  Script for initializing MongoDB database.
+  First removes all sightings from database
+  and then adds initial sightings.
+
+*/
+
+
 
 const mongoose = require('mongoose')
 //Auto-increment plugin for incrementing id
 const autoIncrement = require('mongoose-auto-increment')
 
-mongo_url = 'mongodb://localhost:27017/tietokanta';
+database_name = 'tietokanta';
+mongo_url = 'mongodb://localhost:27017/' + database_name;
 var connection = mongoose.connect(mongo_url);
 
 var SightingSchema = mongoose.Schema({
@@ -25,6 +35,7 @@ SightingSchema.plugin(autoIncrement.plugin, autoIncrementOptions);
 var SightingModel = mongoose.model("Sighting",SightingSchema);
 
 
+//Initial sightings
 const sightings = [
   {
     id: 1,
