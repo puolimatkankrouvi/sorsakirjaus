@@ -10,8 +10,8 @@ Requires server running at port 8081.
 
 My server implementation in the server folder uses 
 Koa.js framework in the main file server.js,
-MongoDB database & Mongoose in db.js & init_db.js and
-Jest and Supertest for testing in test.js.
+MongoDB database & Mongoose driver for database in db.js and
+Jest & Supertest for testing in test.js.
 
 
 Original server can be found from https://github.com/vincit/summer-2018 .
