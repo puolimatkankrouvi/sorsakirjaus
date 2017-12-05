@@ -8,7 +8,7 @@ Exercise for Vincit Summer Work 2018
  
 Requires server running at port 8081.
 
-My server implementation is in the server folder uses 
+My server implementation in the server folder uses 
 Koa.js framework in the main file server.js,
 MongoDB database & Mongoose in db.js & init_db.js and
 Jest and Supertest for testing in test.js.
