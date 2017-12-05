@@ -28,17 +28,16 @@ const species = [
 
 //Testing getting species
 describe("get species" , () =>{
-	it("Should get species", () => {
+	it("Should get species", async () => {
 		//get supertest to http://localhost:8081/species
-		const response = request(server).get('/species').then( () => {
+		const response = await request(server).get('/species');
 
-			//Expects response to have status code 200/OK
-			expect(response.status).toEqual(200);
-			//Expects response type to be application/json
-			expect(response.type).toEqual("application/json");
-			//Expects response body be the same as species
-			expect(response.body.data).toEqual(species);
-		});
+		//Expects response to have status code 200/OK
+		expect(response.status).toEqual(200);
+		//Expects response type to be application/json
+		expect(response.type).toEqual("application/json");
+
+		expect(response.body).toEqual(species);
 	});
 });
 
@@ -57,7 +56,7 @@ describe("Get sightings" , () =>{
 
 		
 		for( i in response.body){
-			//JSON fields to be in the array objects of response
+			//JSON fields to be in all array objects of response
 			expect(response.body[i]).toHaveProperty('id');
 			expect(response.body[i]).toHaveProperty('dateTime');
 			expect(response.body[i]).toHaveProperty('description');
@@ -80,10 +79,27 @@ describe("Post empty sighting" ,() => {
 		expect(response.status).toEqual(404);
 		//Expects response type to be application/json
 		expect(response.type).toEqual("text/plain");
+	});
+});
 
-		//JSON fields to be in the sighting object of the response
 
 
+describe("Post a new sighting", () => {
+	it("Should return a JSON", async () => {
+
+		const newSighting = { 
+        	'count': 2,
+        	'species': 'gadwall',
+        	'description': 'Sorsapari pesänrakennuspuuhissa',
+        	'dateTime': '2017-04-12T10:10:00Z'
+		};
+
+		const response = await request(server).post('/sightings').send(newSighting).set('Accept','application/JSON');
+
+		//Expects response to have status code 200/OK
+		expect(response.status).toEqual(200);
+		//Expects response type to be application/json
+		expect(response.type).toEqual("application/json");
 	});
 });
 
