@@ -104,3 +104,24 @@ describe("Post a new sighting", () => {
 });
 
 
+describe("Post a new sighting with id", () => {
+	it("Should return a JSON", async () => {
+
+		const newSighting = {
+			'id': 40,
+        	'count': 1,
+        	'species': 'redhead',
+        	'description': 'Upea kassikotka liitelee',
+        	'dateTime': '2017-04-12T10:10:00Z'
+		};
+
+		const response = await request(server).post('/sightings').send(newSighting).set('Accept','application/JSON');
+
+		//Expects response to have status code 200/OK
+		expect(response.status).toEqual(200);
+		//Expects response type to be application/json
+		expect(response.type).toEqual("application/json");
+	});
+});
+
+
