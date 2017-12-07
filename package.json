@@ -14,6 +14,10 @@
     "reactjs-bootstrap-table": "^1.0.12",
     "simple-react-validator": "^0.0.6"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "server/node_modules"
+  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
