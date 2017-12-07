@@ -20,9 +20,9 @@
   ],
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cd server/ && yarn install && yarn install --production=true && yarn start",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "cd server/ && yarn install && yarn install --production=true && yarn build"
+    "heroku-postbuild": "cd ..\ && react-scripts start"
   }
 }
