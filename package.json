@@ -23,6 +23,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "cd server/ && yarn install && yarn install --production=true && yarn start"
+    "heroku-postbuild": "cd server/ && yarn install && yarn install --production=true && yarn build"
   }
 }
