@@ -61,7 +61,7 @@ class PostDuck extends Component{
       //Messages for fields that are no valid 
       this.validator.showMessages();
       //Reloading page to show the messages
-      this.forceUpdate();
+      windows.location.reload();
 
     }
   }
