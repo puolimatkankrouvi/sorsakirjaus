@@ -103,17 +103,13 @@ class DuckTable extends Component{
             </tbody>
           </table>
 
-        <form>
-          <table className="table">
-            <tbody>
+        
 
-          		{/*Last rows post a duck*/}
-              <PostDuck all_species={this.state.all_species} dateFormat={date_format} />
+          {/*Post a duck form*/}
+          <PostDuck all_species={this.state.all_species} dateFormat={date_format} />
 
 
-            </tbody>
-          </table>
-        </form>
+            
  
         
       </div>

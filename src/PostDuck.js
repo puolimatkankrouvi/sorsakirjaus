@@ -92,42 +92,49 @@ class PostDuck extends Component{
   render(){
     return(
       
-      <tr>
-        {/*Form fields for a new sighting*/}
-        <th>
-          {this.validator.message('count',this.state.count, 'required|integer|min:1') }
-          <input type="text" name='count' className="Count"  onChange={this.setCount} />
-        </th>
+      <form>
+        <table className="table">
+          <tbody>
 
-        <th>
-          <select name="all_species" onChange={this.setSpecies} id="all_species">
-          {
-            //Mallard is selected by default
-            this.props.all_species.map( species =>
-              species === 'mallard' ?
-              <option value={species.name} selected="selected">{species.name}</option> :
-              <option value={species.name} >{species.name}</option>
+            <tr>
+              {/*Form fields for a new sighting*/}
+              <th>
+                {this.validator.message('count',this.state.count, 'required|integer|min:1') }
+                <input type="text" name='count' className="Count"  onChange={this.setCount} />
+              </th>
+
+              <th>
+                <select name="all_species" onChange={this.setSpecies} id="all_species">
+                {
+                  //Mallard is selected by default
+                  this.props.all_species.map( species =>
+                    species === 'mallard' ?
+                    <option value={species.name} selected="selected">{species.name}</option> :
+                    <option value={species.name} >{species.name}</option>
+                              
+                            )
+                }
+                </select>
+              
+              </th>
                         
-                      )
-          }
-          </select>
-        
-        </th>
-                  
-        <th className="Text-th">
-          { this.validator.message('description',this.state.description, 'required') }
-          <input type="text" name='description' className="Description"  onChange={this.setDescription} />
-        </th>
+              <th className="Text-th">
+                { this.validator.message('description',this.state.description, 'required') }
+                <input type="text" name='description' className="Description"  onChange={this.setDescription} />
+              </th>
 
-        <th>
-          {/* this.validator.message('date',this.state.SightingDate, 'required') */}
-          <DateTime onChange={this.setSightingDate}  placeholder={moment(this.state.sightingDate).format( this.props.date_format )} name='date' pickerOptions={{format: this.props.date_format, locale: 'fi' }} />
-        </th>
+              <th>
+                {/* this.validator.message('date',this.state.SightingDate, 'required') */}
+                <DateTime onChange={this.setSightingDate}  placeholder={moment(this.state.sightingDate).format( this.props.date_format )} name='date' pickerOptions={{format: this.props.date_format, locale: 'fi' }} />
+              </th>
+                
+            </tr>
 
-        <th>
-          <input className="btn btn-primary" type="submit" value="Add" onClick={this.handleSubmit} />
-        </th>
-      </tr>
+          </tbody>
+      </table>
+
+      <input className="btn btn-primary" type="submit" value="Add" onClick={this.handleSubmit} />
+    </form>
     );
   }
 }
