@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, {Component} from 'react';
+import './App.js';
+
+
 var moment = require('moment');
 require('moment/locale/fi');
-
-
 
 const backend_url = "http://localhost:8081/sightings";
 
