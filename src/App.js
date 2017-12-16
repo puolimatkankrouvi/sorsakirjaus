@@ -3,15 +3,10 @@ import React, { Component } from 'react';
 import logo from './duck.svg';
 import './App.css';
 
-import {DateTime} from 'react-datetime-bootstrap';
-
-import {PostDuck} from './PostDuck';
+import PostDuck from './PostDuck';
 import GetDucks from './GetDucks'
 
-var moment = require('moment');
-require('moment/locale/fi');
 
-var SimpleReactValidator = require('simple-react-validator');
 
 
 
@@ -66,16 +61,9 @@ class DuckTable extends Component{
   constructor(props){
     super(props);
     /*Initial values are set for species and sightingDate for such case that their form fields are not touched by user*/
-    this.state = { all_species: [], count: '', species: 'mallard', description: '', sightingDate: Date() };
+    this.state = { all_species: [] };
 
-    //Validates the form
-    this.validator = new SimpleReactValidator();
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.setCount = this.setCount.bind(this);
-    this.setSpecies = this.setSpecies.bind(this);
-    this.setDescription = this.setDescription.bind(this);
-    this.setSightingDate = this.setSightingDate.bind(this);
   }
 
   componentDidMount(){
@@ -90,47 +78,8 @@ class DuckTable extends Component{
     );
   }
 
-  handleSubmit = (e) =>{
 
-    e.preventDefault();
 
-    //Are all the fields of form valid?
-    if ( this.validator.allValid()  ){
-
-      //Posting a new duck sighting
-      PostDuck( this.state.count, this.state.species, this.state.description, this.state.sightingDate );
-      window.location.reload();
-      /* Component version
-      <PostDuck count={this.state.count} species={this.state.species} description={this.state.description} sightingDate={this.state.sightingDate}/> ;
-      */
-    }
-    else{
-      //Messages for fields that are no valid 
-      this.validator.showMessages();
-      //Reloading page to show the messages
-      this.forceUpdate();
-
-    }
-  }
-
-  setCount = (e) =>{
-    e.preventDefault();
-    this.setState({count: e.target.value});
-  }
-
-  setSpecies = (e) =>{
-    e.preventDefault();
-    this.setState({species: e.target.value});
-  }
-
-  setDescription = (e) =>{
-    e.preventDefault();
-    this.setState({description: e.target.value});
-  }
-
-  setSightingDate = (date) =>{
-    this.setState({sightingDate: date});
-  }
 
   render(){
 
@@ -152,43 +101,9 @@ class DuckTable extends Component{
               {/*Fetches all current sightings from server here*/}
               <GetDucks all_species={this.state.all_species} dateFormat={date_format} />
 
+          		{/*Last rows post a duck*/}
+              <PostDuck all_species={this.state.all_species} dateFormat={date_format} />
 
-              {/*Form fields for a new sighting*/}
-              <tr>
-
-                <th>
-                  {this.validator.message('count',this.state.count, 'required|integer|min:1') }
-                  <input type="text" name='count' className="Count"  onChange={this.setCount} />
-                </th>
-
-                <th>
-                  <select name="all_species" onChange={this.setSpecies} id="all_species">
-                  {
-                    //Mallard is selected by default
-                    this.state.all_species.map( species =>
-                      species === 'mallard' ?
-                        <option value={species.name} selected="selected">{species.name}</option> :
-                          <option value={species.name} >{species.name}</option>
-                      
-                    )
-                  }
-                  </select>
-                </th>
-                
-                <th>
-                  { this.validator.message('description',this.state.description, 'required') }
-                    <input type="text" name='description' className="Description"  onChange={this.setDescription} />
-                </th>
-
-                <th>
-                  {/* this.validator.message('date',this.state.SightingDate, 'required') */}
-                  <DateTime onChange={this.setSightingDate}  placeholder={moment(this.state.sightingDate).format( date_format )} name='date' pickerOptions={{format: date_format, locale: 'fi' }} />
-                </th>
-
-                <th>
-                  <input className="btn btn-primary" type="submit" value="Add" onClick={this.handleSubmit} />
-                </th>
-              </tr>
 
             </tbody>
           </table>
