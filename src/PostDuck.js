@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React,{Component} from 'react';
 
+import './App.js';
+
 import {DateTime} from 'react-datetime-bootstrap';
 
 var moment = require('moment');
@@ -112,7 +114,7 @@ class PostDuck extends Component{
         
         </th>
                   
-        <th>
+        <th className="Text-th">
           { this.validator.message('description',this.state.description, 'required') }
           <input type="text" name='description' className="Description"  onChange={this.setDescription} />
         </th>

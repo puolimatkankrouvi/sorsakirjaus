@@ -21,8 +21,6 @@ const date_format = 'D.MM.YYYY, hh:mm:ss';
 
 Todo:
 
-SightingDate siirtymään stateen tai validoitumaan oikein
-
 Havaintojen järjestäminen laskevaan tai nousevaan järjestykseen ajan mukaan
 Datatable?
 
@@ -85,14 +83,14 @@ class DuckTable extends Component{
 
     return(
       <div>
-        <form>
+        
           <table className="table">
             <thead>
               <tr>
-                <th className="Header-th">Määrä</th>
-                <th className="Header-th">Laji</th>
-                <th className="Header-th">Teksti</th>
-                <th className="Header-th">Aika</th>
+                <th>Määrä</th>
+                <th>Laji</th>
+                <th className="Text-th">Teksti</th>
+                <th>Aika</th>
               </tr>
             </thead>
 
@@ -100,6 +98,14 @@ class DuckTable extends Component{
               
               {/*Fetches all current sightings from server here*/}
               <GetDucks all_species={this.state.all_species} dateFormat={date_format} />
+
+
+            </tbody>
+          </table>
+
+        <form>
+          <table className="table">
+            <tbody>
 
           		{/*Last rows post a duck*/}
               <PostDuck all_species={this.state.all_species} dateFormat={date_format} />

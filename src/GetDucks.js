@@ -44,7 +44,7 @@ class GetDucks extends Component{
               <th>
                 {sighting.species}
               </th>
-              <th>
+              <th className="Text-th">
                 {sighting.description}
               </th>
               <th>
