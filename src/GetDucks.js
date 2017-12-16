@@ -57,16 +57,16 @@ class GetDucks extends Component{
           {
             return(
               <tr key={sighting.id} >
-                <th>
+                <th key="count" >
                 {sighting.count}
                 </th>
-                <th>
+                <th key="species" >
                   {sighting.species}
                 </th>
-                <th className="Text-th">
+                <th className="Text-th" key="description">
                   {sighting.description}
                 </th>
-                <th>
+                <th key="datetime" >
                   {moment(sighting.dateTime).format( date_format )}
                 </th>
               </tr>

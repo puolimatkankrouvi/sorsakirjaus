@@ -109,8 +109,8 @@ class PostDuck extends Component{
                   //Mallard is selected by default
                   this.props.all_species.map( species =>
                     species === 'mallard' ?
-                    <option value={species.name} selected="selected">{species.name}</option> :
-                    <option value={species.name} >{species.name}</option>
+                    <option value={species.name} selected="selected">{species.name} key={species.name} </option> :
+                    <option value={species.name} key={species.name} >{species.name}</option>
                               
                             )
                 }
