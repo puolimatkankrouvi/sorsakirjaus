@@ -33,28 +33,52 @@ class GetDucks extends Component{
 
   render (){
     return(
-      [
-        //Mapping duck-sightings to rows of table
-        // and each parameter of a sighting to a column
-        this.state.sightings.map( sighting =>
-          (
-            <tr>
-              <th>
+
+
+      //Mapping duck-sightings to rows of table
+      // and each parameter of a sighting to a column
+      
+
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Määrä</th>
+            <th>Laji</th>
+            <th className="Text-th">Teksti</th>
+            <th>Aika</th>
+          </tr>
+        </thead>
+
+        <tbody>
+              
+        
+        {
+          this.state.sightings.map( (sighting,i) =>
+          {
+            return(
+              <tr key={sighting.id} >
+                <th>
                 {sighting.count}
-              </th>
-              <th>
-                {sighting.species}
-              </th>
-              <th className="Text-th">
-                {sighting.description}
-              </th>
-              <th>
-                {moment(sighting.dateTime).format( date_format )}
-              </th>
-            </tr>
-          )
+                </th>
+                <th>
+                  {sighting.species}
+                </th>
+                <th className="Text-th">
+                  {sighting.description}
+                </th>
+                <th>
+                  {moment(sighting.dateTime).format( date_format )}
+                </th>
+              </tr>
+            );
+            
+          }
         )
-      ]
+      }
+
+        </tbody>
+      </table>
+      
     )
   }
 

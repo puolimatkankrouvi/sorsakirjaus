@@ -84,24 +84,12 @@ class DuckTable extends Component{
     return(
       <div>
         
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Määrä</th>
-                <th>Laji</th>
-                <th className="Text-th">Teksti</th>
-                <th>Aika</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              
+          
               {/*Fetches all current sightings from server here*/}
               <GetDucks all_species={this.state.all_species} dateFormat={date_format} />
 
 
-            </tbody>
-          </table>
+          
 
         
 
