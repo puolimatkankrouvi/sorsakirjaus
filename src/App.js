@@ -96,7 +96,8 @@ class DuckTable extends Component{
         		all_species={this.state.all_species}
         		dateFormat={date_format} count={this.state.species}
         		species={this.state.species} description={this.state.description}
-        		sightingDate={this.state.sightingDate}/>
+        		sightingDate={this.state.sightingDate}
+        		/>
 
 
             
