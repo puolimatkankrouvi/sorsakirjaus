@@ -28,8 +28,6 @@ Datatable?
 
 class App extends Component {
 
-  
-
   render() {
     return (
       <div className="App">
@@ -59,9 +57,13 @@ class DuckTable extends Component{
   constructor(props){
     super(props);
     /*Initial values are set for species and sightingDate for such case that their form fields are not touched by user*/
-    this.state = { all_species: [], count: '', species: 'mallard', description: '', sightingDate: Date() };
+    this.state = { all_species: [], count: '', species: 'mallard', description: '', sightingDate: Date(), formPosted: "NOT POSTED" };
 
 
+  }
+
+  formPosted(){
+  	this.setState({formPosted: "YES"});
   }
 
   componentDidMount(){
@@ -83,18 +85,18 @@ class DuckTable extends Component{
 
     return(
       <div>
-        
-          
+
         {/*Fetches all current sightings from server here*/}
-        <GetDucks all_species={this.state.all_species} dateFormat={date_format}  />
-
-
-          
+        <GetDucks all_species={this.state.all_species} dateFormat={date_format}  />    
 
         
 
         {/*Post a duck form*/}
-        <PostDuck all_species={this.state.all_species} dateFormat={date_format} count={this.state.species} species={this.state.species} description={this.state.description} sightingDate={this.state.sightingDate} />
+        <PostDuck 
+        		all_species={this.state.all_species}
+        		dateFormat={date_format} count={this.state.species}
+        		species={this.state.species} description={this.state.description}
+        		sightingDate={this.state.sightingDate}/>
 
 
             

@@ -13,7 +13,7 @@ var SimpleReactValidator = require('simple-react-validator');
 
 const backend_url = 'http://localhost:8081/sightings';
 
-function SendDuck( count = 4, species = 'mallard', description = 'asjdlajskdlj', sightingDate= Date ){
+function sendDuck( count = 4, species = 'mallard', description = 'asjdlajskdlj', sightingDate= Date ){
   //Sending a new sighting through POST
   axios.post(
       backend_url,
@@ -34,7 +34,7 @@ class PostDuck extends Component{
 
     super();
 
-    this.state = {}
+    this.state = { }
 
     //Validates the form
     this.validator = new SimpleReactValidator();
@@ -54,14 +54,18 @@ class PostDuck extends Component{
     if ( this.validator.allValid()  ){
 
       //Posting a new duck sighting
-      SendDuck( this.state.count, this.state.species, this.state.description, this.state.sightingDate );
+      sendDuck( this.state.count, this.state.species, this.state.description, this.state.sightingDate );
+      this.setState( {formPosted: "YES"} );
+      // This should be changed to reload through calling prop method received from parent,
+      // thus changing the parent state and React reloading
+      // or updating <GetDucks /> component 
       window.location.reload();
     }
     else{
       //Messages for fields that are no valid 
       this.validator.showMessages();
       //Reloading page to show the messages
-      window.location.reload();
+      this.setState({formPosted: "NOT VALID" })
 
     }
   }
