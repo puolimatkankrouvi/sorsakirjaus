@@ -34,7 +34,7 @@ class PostDuck extends Component{
 
     super();
 
-    this.state = {count: '', species: 'mallard', description: '', sightingDate: Date()}
+    this.state = {}
 
     //Validates the form
     this.validator = new SimpleReactValidator();
@@ -56,9 +56,6 @@ class PostDuck extends Component{
       //Posting a new duck sighting
       SendDuck( this.state.count, this.state.species, this.state.description, this.state.sightingDate );
       window.location.reload();
-      /* Component version
-      <PostDuck count={this.state.count} species={this.state.species} description={this.state.description} sightingDate={this.state.sightingDate}/> ;
-      */
     }
     else{
       //Messages for fields that are no valid 
